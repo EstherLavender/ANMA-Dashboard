@@ -1,5 +1,5 @@
-// ✅ Updated Avalanche Dashboard Code with Charts, Sorting, and Filtering
-// Technologies: React, Tailwind CSS, Recharts, Axios
+// ✅ Updated Avalanche Dashboard with Sorting, Filtering, and Real-Time Data Updates 🚀
+// Technologies: React, Tailwind CSS, Recharts, Axios, Framer Motion
 
 // --- File: src/services/avalancheAPI.js ---
 import axios from "axios";
@@ -17,7 +17,7 @@ export async function fetchBlockNumber() {
   return parseInt(data.result, 16);
 }
 
-// 📦 Fetch Latest Block Details
+// 📦 Fetch Block Details by Number
 export async function fetchBlockDetails(blockNumber) {
   const { data } = await axios.post(AVALANCHE_RPC, {
     jsonrpc: "2.0",
@@ -36,12 +36,12 @@ export async function fetchRecentTransactions() {
     hash: tx.hash,
     from: tx.from,
     to: tx.to,
-    value: parseInt(tx.value, 16) / 1e18, // Value in AVAX
+    value: parseInt(tx.value, 16) / 1e18,
     gasUsed: parseInt(tx.gas, 16),
   }));
 }
 
-// 🧑‍💻 Fetch Validator Data (Example Static Data)
+// 🧑‍💻 Fetch Validator Data (Static Example)
 export async function fetchValidators() {
   return [
     { name: "Validator A", uptime: 99.9, stake: 50000 },
@@ -54,6 +54,7 @@ export async function fetchValidators() {
 import { useEffect, useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { fetchValidators } from "../services/avalancheAPI";
+import { motion } from "framer-motion";
 
 export default function ValidatorsChart() {
   const [validators, setValidators] = useState([]);
@@ -63,7 +64,7 @@ export default function ValidatorsChart() {
   }, []);
 
   return (
-    <div className="p-4 bg-white rounded-2xl shadow">
+    <motion.div className="p-4 bg-white rounded-2xl shadow" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <h2 className="text-xl font-bold mb-4">Validator Stake 📈</h2>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={validators}>
@@ -73,7 +74,7 @@ export default function ValidatorsChart() {
           <Bar dataKey="stake" fill="#4F46E5" />
         </BarChart>
       </ResponsiveContainer>
-    </div>
+    </motion.div>
   );
 }
 
@@ -86,6 +87,8 @@ export default function BlockTPSChart() {
   const [tpsData, setTpsData] = useState([]);
 
   useEffect(() => {
+    const interval = setInterval(fetchTPS, 5000); // Refresh every 5 seconds
+
     async function fetchTPS() {
       const latestBlock = await fetchBlockNumber();
       const blocks = await Promise.all(
@@ -97,12 +100,14 @@ export default function BlockTPSChart() {
       })).reverse();
       setTpsData(formatted);
     }
+
     fetchTPS();
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="p-4 bg-white rounded-2xl shadow mt-6">
-      <h2 className="text-xl font-bold mb-4">Transactions Per Block 🧩</h2>
+    <motion.div className="p-4 bg-white rounded-2xl shadow mt-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <h2 className="text-xl font-bold mb-4">Transactions Per Block 🧩 (Real-Time)</h2>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={tpsData}>
           <XAxis dataKey="blockNumber" />
@@ -111,7 +116,7 @@ export default function BlockTPSChart() {
           <Line type="monotone" dataKey="transactions" stroke="#10B981" strokeWidth={2} />
         </LineChart>
       </ResponsiveContainer>
-    </div>
+    </motion.div>
   );
 }
 
@@ -125,7 +130,12 @@ export default function TransactionsList() {
   const [filterValue, setFilterValue] = useState(0);
 
   useEffect(() => {
+    const interval = setInterval(() => {
+      fetchRecentTransactions().then(setTransactions);
+    }, 7000); // Update every 7 seconds
+
     fetchRecentTransactions().then(setTransactions);
+    return () => clearInterval(interval);
   }, []);
 
   const sortedTransactions = transactions
@@ -133,8 +143,8 @@ export default function TransactionsList() {
     .sort((a, b) => b[sortKey] - a[sortKey]);
 
   return (
-    <div className="p-4 bg-white rounded-2xl shadow mt-6">
-      <h2 className="text-xl font-bold mb-4">Transaction History 🧾</h2>
+    <motion.div className="p-4 bg-white rounded-2xl shadow mt-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <h2 className="text-xl font-bold mb-4">Transaction History 🧾 (Live Updates)</h2>
       <div className="flex space-x-4 mb-4">
         <select
           className="p-2 border rounded"
@@ -174,7 +184,7 @@ export default function TransactionsList() {
           ))}
         </tbody>
       </table>
-    </div>
+    </motion.div>
   );
 }
 
