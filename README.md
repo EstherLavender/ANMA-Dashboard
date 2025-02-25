@@ -1,8 +1,6 @@
 # ANMA-Dashboard
 The Avalanche Network Monitoring and Analytics Dashboard provides real-time insights into the Avalanche blockchain's performance.
 
-# Avalanche Dashboard 🚀
-
 A modern dashboard to monitor and analyze the Avalanche blockchain network with real-time data updates, sorting, filtering, and interactive charts.
 
 ## 🌟 Features
