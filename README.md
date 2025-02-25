@@ -26,7 +26,11 @@ Responsive layout for both desktop and mobile devices.
 **✅ API Endpoints intergration**
 
 🔢 fetchBlockNumber: Gets the latest block number.
+
 📦 fetchBlockDetails: Retrieves details of a given block.
+
 ⛽ fetchGasPrice: Fetches the current gas price.
+
 🧾 fetchRecentTransactions: Lists recent transactions from the latest block.
+
 🧑‍💻 fetchValidators: Provides sample validator data (replaceable with a real API).
