@@ -1,31 +1,37 @@
 # ANMA-Dashboard
 The Avalanche Network Monitoring and Analytics Dashboard provides real-time insights into the Avalanche blockchain's performance.
 
-A modern dashboard to monitor and analyze the Avalanche blockchain network with real-time data updates, sorting, filtering, and interactive charts.
+A modern dashboard to monitor and analyze the Avalanche blockchain network with **real-time data updates**, **sorting**, **filtering**, and **interactive charts**. Built for developers seeking actionable network insights.
+
+---
 
 ## 🌟 Features
-- **Validator Stats 📈**: Visualize validator stakes.
-- **Block Details 🧩**: Monitor transactions per block in real-time.
-- **Transaction History 🧾**: View live transaction data with sorting and filtering.
-- **Real-Time Updates 🚀**: Data refreshes automatically for live monitoring.
-- **Responsive UI**: Optimized for all screen sizes with smooth animations.
+✅ **Validator Stats 📈** – Visualize validator stakes with interactive bar charts.
+
+✅ **Block Details 🧩** – Track transactions per block with real-time data.
+
+✅ **Transaction History 🧾** – Sort and filter transactions by value or gas used.
+
+✅ **Real-Time Updates 🚀** – Data refreshes automatically for live monitoring.
+
+✅ **Responsive UI** – Mobile-friendly with smooth animations.
 
 ---
 
 ## 🛠️ Tech Stack
-- **React**: Frontend framework for UI components.
-- **Tailwind CSS**: For styling and responsive layouts.
-- **Recharts**: Data visualization for charts and graphs.
-- **Axios**: Handling API requests.
-- **Framer Motion**: Animations and transitions.
+- ⚛️ **React** – Frontend UI components  
+- 🎨 **Tailwind CSS** – Fast, responsive styling  
+- 📊 **Recharts** – Data visualization with interactive graphs  
+- 🔄 **Axios** – Fetching data from Avalanche RPC  
+- 🎥 **Framer Motion** – Smooth animations and transitions  
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (v14 or higher)
-- [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/)
+✅ [Node.js](https://nodejs.org/) (v14 or higher)  
+✅ [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/)  
 
 ### Installation
 1. **Clone the repository:**
@@ -45,23 +51,23 @@ A modern dashboard to monitor and analyze the Avalanche blockchain network with 
    ```
 
 4. **Open your browser:**
-   Visit [http://localhost:5173](http://localhost:5173) to view the dashboard.
+   Visit [http://localhost:5173](http://localhost:5173) to explore the dashboard.
 
 ---
 
 ## 📁 Project Structure
-```
+```plaintext
 ├── public/                # Static assets
 ├── src/
 │   ├── components/        # React components
-│   │   ├── ValidatorsChart.jsx    # Validator stats bar chart
-│   │   ├── BlockTPSChart.jsx      # Transactions per block line chart
-│   │   └── TransactionsList.jsx   # Transaction history with sorting & filtering
+│   │   ├── ValidatorsChart.jsx    # Bar chart for validator stats
+│   │   ├── BlockTPSChart.jsx      # TPS line chart with real-time data
+│   │   └── TransactionsList.jsx   # Transaction history with sorting/filtering
 │   ├── services/          # API services
-│   │   └── avalancheAPI.js        # Avalanche RPC API calls
-│   ├── App.jsx            # Main application entry
+│   │   └── avalancheAPI.js        # RPC API calls to Avalanche network
+│   ├── App.jsx            # Main application entry point
 │   └── index.jsx          # React DOM render
-├── tailwind.config.js     # Tailwind CSS config
+├── tailwind.config.js     # Tailwind CSS configuration
 └── package.json           # Project dependencies & scripts
 ```
 
@@ -69,62 +75,65 @@ A modern dashboard to monitor and analyze the Avalanche blockchain network with 
 
 ## 📊 Usage & Features
 ### ✅ Validator Stats 📈
-- Displays validators and their stakes.
-- Real-time data with smooth animations.
+Displays top validators and their stakes via an interactive bar chart. Data auto-refreshes every 10 seconds.
 
 ### ✅ Transactions Per Block 🧩
-- Real-time TPS visualization updated every 5 seconds.
-- Helps monitor network activity and block throughput.
+Real-time TPS monitoring with updates every 5 seconds. Easily track network activity.
 
 ### ✅ Transaction History 🧾
-- Live transaction updates every 7 seconds.
-- Sorting by transaction value or gas used.
-- Filter by minimum transaction value.
+- **Sorting:** Arrange by transaction value or gas usage.
+- **Filtering:** Filter by minimum transaction value.
+- **Auto-Refresh:** Updates every 7 seconds for the latest transactions.
 
 ---
 
-## 🚦 API Endpoints
-Powered by Avalanche’s **C-Chain Mainnet RPC**:
-- `fetchBlockNumber()`: Latest block number.
-- `fetchBlockDetails(blockNumber)`: Specific block details.
-- `fetchRecentTransactions()`: Recent transactions in the latest block.
-- `fetchValidators()`: Example validator data.
+## 🚦 API Endpoints Used
+Using Avalanche’s **C-Chain Mainnet RPC**:
+- `fetchBlockNumber()`: Retrieve the latest block number.
+- `fetchBlockDetails(blockNumber)`: Get transaction details of a specific block.
+- `fetchRecentTransactions()`: Access the latest transaction list.
+- `fetchValidators()`: Simulated endpoint for validator data.
 
 ---
 
 ## 🖼️ Screenshots
-> *(Add screenshots or gifs of the dashboard here for better visuals.)*
+> *(Add screenshots or GIFs here)*
+> - ✅ Validator Stats Bar Chart  
+> - ✅ TPS Line Chart in Action  
+> - ✅ Transaction History with Filters & Sort Options  
 
 ---
 
 ## 📢 Contributing
-Contributions are welcome! ✨
+💙 Contributions are welcome! Follow these steps:
 1. Fork the repository.
-2. Create your branch: `git checkout -b feature/your-feature`.
-3. Commit changes: `git commit -m 'Add new feature'`.
-4. Push to your branch: `git push origin feature/your-feature`.
-5. Submit a pull request.
+2. Create a branch: `git checkout -b feature/your-feature`.
+3. Make your changes and commit: `git commit -m 'Add new feature'`.
+4. Push your branch: `git push origin feature/your-feature`.
+5. Submit a pull request for review.
 
 ---
 
 ## 📄 License
-This project is licensed under the MIT License.
+Licensed under the **MIT License** – free to use and modify.
 
 ---
 
 ## 🙌 Acknowledgements
-- Built with ❤️ using React, Tailwind CSS, and Avalanche RPC.
-- Inspired by the **Devtools Track** at the hackathon.
+- Built with ❤️ by the **Devtools Track** team during the hackathon.  
+- Special thanks to the Avalanche community and open-source contributors.  
 
 ---
 
-## 🔗 Links
-- [Avalanche Docs](https://docs.avax.network/)
-- [Recharts](https://recharts.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [Tailwind CSS](https://tailwindcss.com/)
+## 🔗 Useful Links
+- 🌐 [Avalanche Docs](https://docs.avax.network/)  
+- 📊 [Recharts Documentation](https://recharts.org/)  
+- 🎥 [Framer Motion](https://www.framer.com/motion/)  
+- 🎨 [Tailwind CSS](https://tailwindcss.com/)  
 
 ---
+
+🚀 *Start monitoring the Avalanche network like a pro!* 🚀
 
 
 
