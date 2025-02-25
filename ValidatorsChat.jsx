@@ -1,5 +1,5 @@
 ### 📈 **Validator Stats** (`ValidatorsChart.jsx`)
-```jsx
+
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { useEffect, useState } from 'react';
 import { fetchValidators } from '../services/avalancheAPI';
