@@ -4,8 +4,8 @@ The Avalanche Network Monitoring and Analytics Dashboard provides real-time insi
 **🧭 Main Functionalities:**
 
 
-**Live Transactions Per Second (TPS) Monitoring:
-**
+Live Transactions Per Second (TPS) Monitoring:
+
 
 Visualizes how many transactions are processed per second.
 Helps track network activity and usage trends.
