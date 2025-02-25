@@ -126,7 +126,6 @@ This project is licensed under the MIT License.
 
 ---
 
-🚀 *Happy Building!* 🚀
 
 
-🧑‍💻 fetchValidators: Provides sample validator data (replaceable with a real API).
+
